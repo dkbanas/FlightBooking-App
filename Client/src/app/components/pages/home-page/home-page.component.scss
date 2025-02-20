@@ -1,0 +1,40 @@
+/* Hero Section */
+.hero-section {
+  position: relative; /* Allows child elements to be positioned relative to this container */
+  width: 100%;
+}
+
+/* Hero Image */
+.hero-image {
+  width: 100%;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures the image scales properly */
+}
+
+/* Search Overlay (with slight overlap) */
+.search-overlay {
+  position: relative; /* Default positioning, part of the document flow */
+  top: -10vh; /* Moves the search box up, creating the overlap effect */
+  margin: 0 auto; /* Centers the search box horizontally */
+  padding: 1.25rem;
+  border-radius: 0.625rem;
+}
+
+/* Media Query for Small Screens (Phones) */
+@media (max-width: 768px) {
+  .hero-image {
+    display: none; /* Completely hide the hero image */
+  }
+
+  .search-overlay {
+    position: static; /* Reset positioning to avoid overlap */
+    top: 0; /* Remove the overlap effect */
+    margin-top: 5vh; /* Add spacing above the search box */
+  }
+
+
+}

@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-8">
+      <div class="card w-auto mx-auto">
+        <div class="card-body">
+          <!-- Radio Buttons for Flight Type -->
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flightType" id="roundTrip" [checked]="roundTrip" (change)="roundTrip = true" />
+            <label class="form-check-label fw-bold" for="roundTrip">
+              <i class="bi bi-arrow-left-right me-2"></i> Round trip flight
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flightType" id="oneWay" [checked]="!roundTrip" (change)="roundTrip = false" />
+            <label class="form-check-label fw-bold" for="oneWay">
+              <i class="bi bi-arrow-right me-2"></i> One way flight
+            </label>
+          </div>
+
+          <!-- Departure Input -->
+          <div class="mt-3">
+            <label class="fw-bold"><i class="bi bi-geo-alt-fill me-2"></i> From</label>
+            <input type="text" class="form-control" placeholder="Enter departure city or airport" [(ngModel)]="departureAirportInput" (input)="onFromInputChange()" />
+            <ul *ngIf="filteredFromAirports.length > 0" class="list-group mt-2">
+              <li class="list-group-item list-group-item-action" *ngFor="let airport of filteredFromAirports" (click)="selectAirport(airport, 'from')">
+                {{ airport.name }} - {{ airport.city }} - {{ airport.country }}
+              </li>
+            </ul>
+          </div>
+
+          <!-- Destination Input -->
+          <div class="mt-3">
+            <label class="fw-bold"><i class="bi bi-geo-alt-fill me-2"></i> To</label>
+            <input type="text" class="form-control" placeholder="Enter destination city or airport" [(ngModel)]="arrivalAirportInput" (input)="onToInputChange()" />
+            <ul *ngIf="filteredToAirports.length > 0" class="list-group mt-2">
+              <li class="list-group-item list-group-item-action" *ngFor="let airport of filteredToAirports" (click)="selectAirport(airport, 'to')">
+                {{ airport.name }} - {{ airport.city }} - {{ airport.country }}
+              </li>
+            </ul>
+          </div>
+
+          <!-- Departure and Return Dates -->
+          <div class="mt-3">
+            <label class="fw-bold"><i class="bi bi-calendar-event-fill me-2"></i> Departure date</label>
+            <input type="date" class="form-control" placeholder="Select departure date" [(ngModel)]="departureDate" />
+          </div>
+          <div class="mt-3" *ngIf="roundTrip">
+            <label class="fw-bold"><i class="bi bi-calendar-event-fill me-2"></i> Return date</label>
+            <input type="date" class="form-control" placeholder="Select return date" [(ngModel)]="returnDate" />
+          </div>
+
+          <!-- Passengers Section -->
+          <div class="mt-3">
+            <label class="fw-bold" (click)="togglePassengers()">
+              <i class="bi bi-people-fill me-2"></i> Passengers
+              <i [ngClass]="{'bi-chevron-down': !passengersVisible, 'bi-chevron-up': passengersVisible}" class="ms-2"></i>
+            </label>
+            <input type="text" class="form-control" [value]="passengerSummary" readonly (click)="togglePassengers()" />
+
+            <!-- Collapsible Passenger Selection -->
+            <div *ngIf="passengersVisible" class="mt-3 border p-3 rounded">
+              <!-- Adults Section -->
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <span class="fw-bold">Adults</span>
+                <div class="d-flex align-items-center ms-3">
+                  <button class="icon-button" (click)="decrement('adults')"><i class="bi bi-dash-circle primary-icon"></i></button>
+                  <span class="mx-3">{{ adults }}</span>
+                  <button class="icon-button" (click)="increment('adults')"><i class="bi bi-plus-circle primary-icon"></i></button>
+                </div>
+              </div>
+
+              <!-- Children Section -->
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <span class="fw-bold">Children</span>
+                <div class="d-flex align-items-center ms-3">
+                  <button class="icon-button" (click)="decrement('children')"><i class="bi bi-dash-circle primary-icon"></i></button>
+                  <span class="mx-3">{{ children }}</span>
+                  <button class="icon-button" (click)="increment('children')"><i class="bi bi-plus-circle primary-icon"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Search Button -->
+          <div class="mt-3">
+            <a class="btn btn-primary w-100" (click)="searchFlights()">Search Flights</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

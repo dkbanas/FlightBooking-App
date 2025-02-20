@@ -1,0 +1,95 @@
+/* Modal Header */
+.modal-header {
+  background-color: #003366; /* Deep navy for header */
+  color: white;
+  border-top-left-radius: 10px; /* Rounded corners */
+  border-top-right-radius: 10px;
+  padding: 1.25rem;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.btn-close {
+  color: white;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.btn-close:hover {
+  opacity: 1;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 1.5rem;
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-bottom-left-radius: 10px; /* Rounded corners */
+  border-bottom-right-radius: 10px;
+}
+
+/* Form Labels */
+.form-label {
+  font-weight: bold;
+  color: #003366; /* Consistent with theme */
+}
+
+/* Form Inputs */
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #FFD700; /* Gold border on focus */
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); /* Subtle gold glow */
+}
+
+/* Input Group Button */
+.input-group .btn-outline-secondary {
+  border-color: #ccc;
+  color: #003366;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.input-group .btn-outline-secondary:hover {
+  background-color: #FFD700; /* Gold on hover */
+  color: black;
+}
+
+/* Error Messages */
+.text-danger {
+  font-size: 0.875rem;
+}
+
+/* Submit Button */
+.btn-primary {
+  background-color: #FFD700; /* Gold button */
+  border-color: #FFD700;
+  color: black;
+  font-weight: bold;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #FFC300; /* Darker gold */
+  border-color: #FFC300;
+}
+
+/* Full Width Button */
+.btn.w-100 {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+/* General Styling */
+.modal-content {
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Elevated shadow */
+  overflow: hidden; /* Prevents content spilling out of rounded corners */
+}

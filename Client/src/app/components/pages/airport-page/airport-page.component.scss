@@ -1,0 +1,125 @@
+
+/* Cards for Airports */
+.airport-card {
+  border-radius: 0.5rem; // Rounded corners for a clean look
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow for elevation
+
+  &:hover {
+    transform: scale(1.05); // Slight scale effect
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); // Enhanced shadow on hover
+  }
+
+  img {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    object-fit: cover;
+  }
+}
+
+/* Active Category Chips */
+.btn.active-chip {
+  background-color: #ffd700; // Gold for active chips
+  color: black;
+  border-color: #ffd700;
+
+  &:hover {
+    background-color: #ffc300; // Slightly darker gold
+    border-color: #ffc300;
+  }
+}
+
+
+/* General Buttons */
+.btn-outline-primary {
+  border-color: #003366; // Deep navy border
+  color: #003366;
+
+  &:hover {
+    background-color: #003366; // Deep navy fill
+    color: white;
+    border-color: #003366;
+  }
+}
+
+
+/* Pagination */
+.ngb-pagination {
+  .page-link {
+    color: #003366; // Deep navy for pagination links
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #ffd700; // Gold on hover
+      background-color: transparent;
+    }
+  }
+
+  .page-item.active .page-link {
+    background-color: #ffd700; // Gold for active page
+    border-color: #ffd700;
+    color: black;
+  }
+}
+
+/* Dropdowns */
+.form-select {
+  border-radius: 0.3rem;
+  border: 1px solid #ccc;
+  transition: box-shadow 0.3s ease;
+
+  &:focus {
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); // Subtle gold glow
+    border-color: #ffd700; // Gold border on focus
+  }
+}
+
+/* Typography */
+h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #003366;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  color: #003366; /* Deep navy for titles */
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555; /* Neutral text color */
+}
+
+.pagination-responsive {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .d-flex.flex-wrap > div {
+    flex-basis: 100%;
+  }
+}
+
+@media (hover: none) {
+  .airport-card {
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Mobile-Friendly Pagination */
+@media (max-width: 400px) {
+  .ngb-pagination .page-link {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+}

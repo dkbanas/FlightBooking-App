@@ -1,0 +1,135 @@
+/* Navbar Styles */
+.navbar {
+  background-color: #003366; /* Deep Navy Blue */
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: space-between; /* Space between Logo, Links, and Buttons */
+  align-items: center;
+}
+
+/* Logo Div */
+.navbar-brand-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* Links Div (Home, Reservation, Airports) */
+.navbar-links {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1; /* Ensure this takes up available space */
+}
+
+.navbar .nav-link {
+  color: white; /* Default color */
+  font-weight: 500;
+  padding: 8px 15px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #FFB300; /* Lighter yellow for hover */
+  text-decoration: none;
+}
+
+.navbar .nav-item.active .nav-link,
+.navbar .nav-link.active {
+  color: #FFD700; /* Gold color when selected */
+  font-weight: bold;
+  border-bottom: 3px solid #FFD700; /* Underline when active */
+}
+
+/* Buttons Div (Login, Register, Logout) */
+.navbar-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .nav-link.btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar .nav-link.btn.btn-yellow {
+  background-color: #FFD700; /* Yellow background */
+  color: black; /* Black text */
+}
+
+.navbar .nav-link.btn.btn-yellow:hover {
+  background-color: #FFB300; /* Darker yellow on hover */
+}
+
+.navbar .nav-link.btn.btn-outline-yellow {
+  border: 2px solid #FFD700; /* Yellow border */
+  color: #FFD700; /* Yellow text */
+}
+
+.navbar .nav-link.btn.btn-outline-yellow:hover {
+  background-color: #FFD700; /* Background turns yellow on hover */
+  color: black; /* Text turns black */
+}
+
+/* Phone View Styles */
+@media (max-width: 767px) {
+  /* Collapse navbar into a dropdown on phone screens */
+  .navbar-collapse {
+    border-top: 1px solid white;
+    padding-top: 10px;
+  }
+
+  /* Make navbar items full width */
+  .navbar-nav {
+    flex-direction: column;
+    width: 100%; /* Full width for navbar items */
+  }
+
+  /* Full-width links without underline */
+  .navbar-nav .nav-link {
+    text-align: center; /* Center-align the text */
+    width: 100%;
+    padding: 10px 0; /* Add padding for better spacing */
+    border-bottom: 1px solid #003366; /* Optional: Divider between items */
+    text-decoration: none; /* Remove underline */
+  }
+
+  .navbar-nav .nav-link:last-child {
+    border-bottom: none; /* Remove border from the last item */
+  }
+
+  /* Full-width buttons with equal width */
+  .navbar .nav-link.btn {
+    width: 100%; /* Full width */
+    text-align: center; /* Center-align button text */
+    margin-bottom: 10px; /* Add spacing between buttons */
+    margin-left: 0 !important;
+  }
+
+  .navbar .nav-link.btn:first-child {
+    margin-top: 10px; /* Add a little extra space above the first button */
+  }
+
+
+}
+
+/* Airplane Icon Styles */
+.airplane-icon {
+  color: #FFB300; /* Change color to yellow */
+  font-size: 1.5rem; /* Make it a little bigger */
+  transform: rotate(45deg); /* Rotate 45 degrees to the right */
+  margin-right: 10px; /* Add some spacing between the icon and the text */
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+/* Optional: Add hover effect */
+.airplane-icon:hover {
+  transform: rotate(90deg); /* Rotate further on hover */
+}

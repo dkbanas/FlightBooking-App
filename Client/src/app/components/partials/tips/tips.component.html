@@ -1,0 +1,11 @@
+<div class="tips-container">
+  <h2 class="text-center mb-3">{{ componentTitle }}</h2>
+  <p class="text-center mb-4 component-description">{{ componentDescription }}</p>
+  <div class="tip-card" *ngFor="let tip of tips">
+    <div class="tip-icon">{{ tip.icon }}</div>
+    <div class="tip-content">
+      <h3 class="tip-title">{{ tip.title }}</h3>
+      <p class="tip-description">{{ tip.description }}</p>
+    </div>
+  </div>
+</div>

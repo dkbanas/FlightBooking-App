@@ -1,0 +1,77 @@
+<ng-template #registerModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="registerModalLabel">Register</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          formControlName="email"
+          placeholder="Enter your email"
+        />
+        <div *ngIf="email.invalid && !email.untouched" class="text-danger mt-1">
+          <small *ngIf="email.errors?.['required']">Email is required to register</small>
+          <small *ngIf="email.errors?.['email']">Email is invalid</small>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <div class="input-group">
+          <input
+            [type]="passwordVisible ? 'text' : 'password'"
+            id="password"
+            class="form-control"
+            formControlName="password"
+            placeholder="Enter your password"
+          />
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            (click)="togglePasswordVisibility()"
+            aria-label="Toggle password visibility"
+          >
+            <i class="bi" [ngClass]="passwordVisible ? 'bi-eye-slash' : 'bi-eye'"></i>
+          </button>
+        </div>
+        <div *ngIf="password.invalid && (password.dirty || !password.untouched)" class="text-danger mt-1">
+          <small *ngIf="password.errors?.['required']">Password is required to register</small>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <div class="input-group">
+          <input
+            [type]="confirmPasswordVisible ? 'text' : 'password'"
+            id="confirmPassword"
+            class="form-control"
+            formControlName="confirmPassword"
+            placeholder="Confirm your password"
+          />
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            (click)="toggleConfirmPasswordVisibility()"
+            aria-label="Toggle confirm password visibility"
+          >
+            <i class="bi" [ngClass]="confirmPasswordVisible ? 'bi-eye-slash' : 'bi-eye'"></i>
+          </button>
+        </div>
+        <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || !confirmPassword.untouched)" class="text-danger mt-1">
+          <small *ngIf="confirmPassword.errors?.['required']">Confirm Password is required</small>
+          <small *ngIf="confirmPassword.errors?.['confirmedValidator']">Passwords do not match</small>
+        </div>
+      </div>
+
+      <div *ngIf="errorMessage" class="text-danger mt-3">
+        {{ errorMessage }}
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 mt-3" [disabled]="registerForm.invalid">Register</button>
+    </form>
+  </div>
+</ng-template>

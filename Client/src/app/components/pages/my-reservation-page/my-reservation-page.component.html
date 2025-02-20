@@ -1,0 +1,37 @@
+<div class="container mt-4">
+  <h2>My Reservations</h2>
+  <app-cancel-reservation-modal #cancelModal (reservationCanceled)="fetchReservations()"></app-cancel-reservation-modal>
+
+  <div *ngIf="reservations.length > 0; else noReservations">
+    <div ngbAccordion>
+      <div *ngFor="let reservation of reservations" ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>
+            Flight {{ reservation.flightNumber }} - {{ reservation.departureCity }} to {{ reservation.arrivalCity }}
+          </button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <p><strong>Reservation Date:</strong> {{ reservation.reservationDate | date: 'medium' }}</p>
+            <p><strong>Seat Numbers:</strong> {{ reservation.seatNumbers.join(', ') }}</p>
+            <p><strong>Departure:</strong> {{ reservation.departureCity }}, {{ reservation.departureCountry }}</p>
+            <p><strong>Arrival:</strong> {{ reservation.arrivalCity }}, {{ reservation.arrivalCountry }}</p>
+            <p><strong>Departure Time:</strong> {{ reservation.departureTime | date: 'medium' }}</p>
+            <p><strong>Price per Passenger:</strong> {{ reservation.price | currency }}</p>
+            <p><strong>Total Price:</strong> {{ getTotalPrice(reservation) | currency }}</p>
+            <button class="btn btn-danger" (click)="cancelModal.openModal(reservation.id)">Cancel Reservation</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noReservations>
+    <div class="d-flex justify-content-center align-items-center mt-5">
+      <div class="alert alert-info text-center" role="alert">
+        <h5 class="alert-heading">No reservations found</h5>
+        <p>You don't have any active reservations at the moment. Book your next flight now!</p>
+      </div>
+    </div>
+  </ng-template>
+</div>

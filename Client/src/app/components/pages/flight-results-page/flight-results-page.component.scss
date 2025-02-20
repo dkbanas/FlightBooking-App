@@ -1,0 +1,85 @@
+/* General Styling */
+.container {
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  box-shadow: 0px 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+/* Flight Card */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: #003366;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Plane Icon */
+.plane-icon {
+  font-size: 2rem; /* Larger icon */
+  color: #FFD700;
+  transform: rotate(90deg); /* Rotate 90 degrees by default */
+  margin: 0 20px; /* Adjust spacing */
+}
+
+/* Flight Info and Time */
+.flight-info {
+  font-size: 1.1rem; /* Larger text */
+  margin-bottom: 5px;
+}
+
+.flight-time {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Price and Seats */
+.card-text strong {
+  color: #003366;
+}
+
+/* Button */
+.btn-primary {
+  background-color: #003366;
+  border-color: #003366;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  width: auto; /* Default width */
+}
+
+.btn-primary:hover {
+  background-color: #004080;
+  border-color: #004080;
+}
+
+/* Responsive layout */
+@media (max-width: 767px) {
+  .d-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plane-icon {
+    transform: rotate(180deg); /* Rotate 180 degrees on phone screens */
+    margin: 10px 0;
+  }
+
+  .flight-info, .flight-time {
+    text-align: center;
+  }
+
+  .btn-primary {
+    width: 100%; /* Full width on phone screens */
+  }
+}

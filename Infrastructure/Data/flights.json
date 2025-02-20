@@ -1,0 +1,83 @@
+[
+    {
+      "FlightNumber": "FL001",
+      "DepartureLocationId": 1,
+      "ArrivalLocationId": 2,
+      "DepartureTime": "2025-01-01T06:00:00Z",
+      "ArrivalTime": "2025-01-01T08:00:00Z",
+      "Price": 199.99,
+      "Airline": "Airline A"
+    },
+    {
+      "FlightNumber": "FL002",
+      "DepartureLocationId": 2,
+      "ArrivalLocationId": 1,
+      "DepartureTime": "2025-01-01T08:30:00Z",
+      "ArrivalTime": "2025-01-01T10:30:00Z",
+      "Price": 249.99,
+      "Airline": "Airline B"
+    },
+    {
+      "FlightNumber": "FL003",
+      "DepartureLocationId": 1,
+      "ArrivalLocationId": 3,
+      "DepartureTime": "2025-01-01T10:00:00Z",
+      "ArrivalTime": "2025-01-01T12:00:00Z",
+      "Price": 159.99,
+      "Airline": "Airline C"
+    },
+    {
+      "FlightNumber": "FL004",
+      "DepartureLocationId": 3,
+      "ArrivalLocationId": 1,
+      "DepartureTime": "2025-01-01T12:30:00Z",
+      "ArrivalTime": "2025-01-01T14:30:00Z",
+      "Price": 179.99,
+      "Airline": "Airline D"
+    },
+    {
+      "FlightNumber": "FL005",
+      "DepartureLocationId": 2,
+      "ArrivalLocationId": 3,
+      "DepartureTime": "2025-01-01T14:00:00Z",
+      "ArrivalTime": "2025-01-01T16:00:00Z",
+      "Price": 229.99,
+      "Airline": "Airline E"
+    },
+    {
+      "FlightNumber": "FL006",
+      "DepartureLocationId": 1,
+      "ArrivalLocationId": 2,
+      "DepartureTime": "2025-01-01T16:30:00Z",
+      "ArrivalTime": "2025-01-01T18:30:00Z",
+      "Price": 199.99,
+      "Airline": "Airline F"
+    },
+    {
+      "FlightNumber": "FL007",
+      "DepartureLocationId": 2,
+      "ArrivalLocationId": 1,
+      "DepartureTime": "2025-01-01T18:00:00Z",
+      "ArrivalTime": "2025-01-01T20:00:00Z",
+      "Price": 249.99,
+      "Airline": "Airline G"
+    },
+    {
+      "FlightNumber": "FL008",
+      "DepartureLocationId": 1,
+      "ArrivalLocationId": 3,
+      "DepartureTime": "2025-01-01T20:30:00Z",
+      "ArrivalTime": "2025-01-01T22:30:00Z",
+      "Price": 159.99,
+      "Airline": "Airline H"
+    },
+    {
+      "FlightNumber": "FL010",
+      "DepartureLocationId": 2,
+      "ArrivalLocationId": 1,
+      "DepartureTime": "2025-01-01T23:30:00Z",
+      "ArrivalTime": "2025-01-02T01:30:00Z",
+      "Price": 229.99,
+      "Airline": "Airline J"
+    }
+  ]

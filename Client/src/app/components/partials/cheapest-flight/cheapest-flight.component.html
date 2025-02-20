@@ -1,0 +1,19 @@
+<div class="container my-5" style="max-width: 900px;">
+  <h2 class="text-center mb-4">Top 5 Cheapest Flights</h2>
+  <ngb-carousel *ngIf="topFlights.length > 0">
+    <ng-template ngbSlide *ngFor="let flight of topFlights; let i = index">
+      <div class="card mx-auto" [class.active]="i === 0">
+        <img [src]="flight.arrivalLocation.cityPhotoUrl" class="card-img-top" alt="{{ flight.arrivalLocation.city }}" />
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ flight.arrivalLocation.city }}, {{ flight.arrivalLocation.country }}
+          </h5>
+          <p class="card-text">
+            <strong>Price:</strong> ${{ flight.price }}<br />
+            <strong>Departure:</strong> {{ flight.departureTime | date: 'mediumDate' }}
+          </p>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>

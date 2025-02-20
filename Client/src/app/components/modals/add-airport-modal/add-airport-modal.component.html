@@ -1,0 +1,94 @@
+<ng-template #newAirportModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="newAirportModalLabel">Create new airport</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="newAirportForm" (ngSubmit)="create()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name of Airport</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          formControlName="name"
+          placeholder="Enter name of airport"
+        />
+        <div *ngIf="name.invalid && !name.untouched" class="text-danger mt-1">
+          <small *ngIf="name.errors?.['required']">Name is required to create airport</small>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="code" class="form-label">IATA</label>
+        <div class="input-group">
+          <input
+            type="text"
+            id="code"
+            class="form-control"
+            formControlName="code"
+            placeholder="Enter your IATA code"
+          />
+        </div>
+        <div *ngIf="code.invalid && !code.untouched" class="text-danger mt-1">
+          <small *ngIf="code.errors?.['required']">IATA code is required to create airport</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="code" class="form-label">City</label>
+        <div class="input-group">
+          <input
+            type="text"
+            id="city"
+            class="form-control"
+            formControlName="city"
+            placeholder="Enter city"
+          />
+        </div>
+        <div *ngIf="city.invalid && !city.untouched" class="text-danger mt-1">
+          <small *ngIf="city.errors?.['required']">City is required to create airport</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="code" class="form-label">Country</label>
+        <div class="input-group">
+          <input
+            type="text"
+            id="country"
+            class="form-control"
+            formControlName="country"
+            placeholder="Enter country"
+          />
+        </div>
+        <div *ngIf="country.invalid && !country.untouched" class="text-danger mt-1">
+          <small *ngIf="country.errors?.['required']">Country is required to create airport</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="continent" class="form-label">Continent</label>
+        <select id="continent" class="form-select" formControlName="continent">
+          <option value="" disabled>Select continent</option>
+          <option *ngFor="let c of continents" [value]="c">{{ c }}</option>
+        </select>
+        <div *ngIf="continent.invalid && !continent.untouched" class="text-danger mt-1">
+          <small *ngIf="continent.errors?.['required']">Continent is required to create airport</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Airport Image</label>
+        <input
+          type="file"
+          id="image"
+          class="form-control"
+          (change)="onFileSelected($event)"
+        />
+      </div>
+
+
+      <button type="submit" class="btn btn-primary w-100" [disabled]="newAirportForm.invalid">Create</button>
+    </form>
+  </div>
+</ng-template>

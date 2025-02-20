@@ -1,0 +1,136 @@
+<ng-template #newFlightModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="newFlightModalLabel">Create new flight</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="newFlightForm" (ngSubmit)="create()">
+      <div class="mb-3">
+        <label for="flightNumber" class="form-label">Flight number</label>
+        <input
+          type="text"
+          id="flightNumber"
+          class="form-control"
+          formControlName="flightNumber"
+          placeholder="Enter flight number: AN-DDMMYYYY-XXXX"
+        />
+        <div *ngIf="flightNumber.invalid && !flightNumber.untouched" class="text-danger mt-1">
+          <small *ngIf="flightNumber.errors?.['required']">Flight number is required to create flight</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="departureLocationId" class="form-label">Departure location</label>
+        <input
+          type="text"
+          id="departureLocationId"
+          class="form-control"
+          placeholder="Enter departure airport"
+          formControlName="departureLocationId"
+          (input)="onLocationInput('departure')"
+          [value]="departureLocationDisplay"
+        />
+        <div *ngIf="departureLocationId.invalid && !departureLocationId.untouched" class="text-danger mt-1">
+          <small *ngIf="departureLocationId.errors?.['required']">Departure location is required to create flight</small>
+        </div>
+
+        <ul *ngIf="departureAirports.length > 0" class="list-group mt-2" style="max-height: 200px; overflow-y: auto;">
+          <li *ngFor="let airport of departureAirports"
+              class="list-group-item"
+              (click)="selectAirport(airport, 'departure')"
+              style="cursor: pointer;">
+            {{ airport.name }} - {{ airport.city }} - {{ airport.country }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="mb-3">
+        <label for="arrivalLocationId" class="form-label">Arrival location</label>
+        <input
+          type="text"
+          id="arrivalLocationId"
+          class="form-control"
+          placeholder="Enter arrival airport"
+          formControlName="arrivalLocationId"
+          (input)="onLocationInput('arrival')"
+          [value]="arrivalLocationDisplay"
+        />
+        <div *ngIf="arrivalLocationId.invalid && !arrivalLocationId.untouched" class="text-danger mt-1">
+          <small *ngIf="arrivalLocationId.errors?.['required']">Arrival location is required to create flight</small>
+        </div>
+
+        <ul *ngIf="arrivalAirports.length > 0" class="list-group mt-2" style="max-height: 200px; overflow-y: auto;">
+          <li *ngFor="let airport of arrivalAirports"
+              class="list-group-item"
+              (click)="selectAirport(airport, 'arrival')"
+              style="cursor: pointer;">
+            {{ airport.name }} - {{ airport.city }} - {{ airport.country }}
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="departureTime" class="form-label">Departure time</label>
+        <input
+          type="datetime-local"
+          id="departureTime"
+          class="form-control"
+          formControlName="departureTime"
+          placeholder="Enter departure time"
+        />
+        <div *ngIf="departureTime.invalid && !departureTime.untouched" class="text-danger mt-1">
+          <small *ngIf="departureTime.errors?.['required']">Departure time is required to create flight</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="arrivalTime" class="form-label">Arrival time</label>
+        <input
+          type="datetime-local"
+          id="arrivalTime"
+          class="form-control"
+          formControlName="arrivalTime"
+          placeholder="Enter arrival time"
+        />
+        <div *ngIf="arrivalTime.invalid && !arrivalTime.untouched" class="text-danger mt-1">
+          <small *ngIf="arrivalTime.errors?.['required']">Arrival time is required to create flight</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="price" class="form-label">Economy Price</label>
+        <input
+          type="number"
+          id="price"
+          class="form-control"
+          formControlName="price"
+        />
+        <div *ngIf="price.invalid && !price.untouched" class="text-danger mt-1">
+          <small *ngIf="price.errors?.['required']">Price is required</small>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="mb-3">
+        <label for="airline" class="form-label">Airline</label>
+        <input
+          type="text"
+          id="airline"
+          class="form-control"
+          formControlName="airline"
+          placeholder="Enter Airline"
+        />
+        <div *ngIf="airline.invalid && !airline.untouched" class="text-danger mt-1">
+          <small *ngIf="airline.errors?.['required']">Airline is required to create flight</small>
+        </div>
+      </div>
+
+
+      <button type="submit" class="btn btn-primary w-100" [disabled]="newFlightForm.invalid">Create</button>
+    </form>
+  </div>
+</ng-template>

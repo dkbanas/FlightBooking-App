@@ -1,0 +1,33 @@
+.medal {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-right: 10px;
+}
+
+.diamond {
+  background-color: #b9f2ff; /* Diamond color */
+  color: #000;
+}
+
+.platinum {
+  background-color: #e5e4e2; /* Platinum color */
+  color: #000;
+}
+
+.gold {
+  background-color: #FFD700; /* Gold color */
+  color: #000;
+}
+
+.silver {
+  background-color: #C0C0C0; /* Silver color */
+  color: #000;
+}
+
+.bronze {
+  background-color: #CD7F32; /* Bronze color */
+  color: #000;
+}

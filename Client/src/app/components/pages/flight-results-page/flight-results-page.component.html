@@ -1,0 +1,102 @@
+<div class="container my-4">
+  <div class="row">
+    <!-- Loop through each flight and display in a card -->
+    <div *ngFor="let flight of flights" class="col-12 mb-4">
+      <div class="card h-100">
+        <div class="card-body d-flex flex-column">
+
+          <!-- Flight Title and Airline -->
+          <h5 class="card-title mb-3 text-center">
+            {{ flight.outboundFlight.flightNumber }} - {{ flight.outboundFlight.airline }}
+          </h5>
+
+          <!-- Flight Information -->
+          <div class="card-text mb-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="text-center">
+                <div class="flight-info">
+                  <strong>From:</strong> {{ flight.outboundFlight.departureLocation.city }} ({{ flight.outboundFlight.departureLocation.code }})
+                </div>
+                <div class="flight-time">
+                  <strong>Departure:</strong> {{ flight.outboundFlight.departureTime | date: 'short' }}
+                </div>
+              </div>
+              <div class="plane-icon">
+                <i class="bi bi-airplane-engines"></i>
+              </div>
+              <div class="text-center">
+                <div class="flight-info">
+                  <strong>To:</strong> {{ flight.outboundFlight.arrivalLocation.city }} ({{ flight.outboundFlight.arrivalLocation.code }})
+                </div>
+                <div class="flight-time">
+                  <strong>Arrival:</strong> {{ flight.outboundFlight.arrivalTime | date: 'short' }}
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-2">
+              <strong>Duration:</strong> {{ flight.outboundFlight.duration }}
+            </div>
+          </div>
+
+          <!-- Price and Seats Available -->
+          <div class="card-text mb-3 d-flex justify-content-around">
+            <div class="text-center">
+              <strong>Price:</strong><br>
+              {{ flight.outboundFlight.price | currency }}
+            </div>
+            <div class="text-center">
+              <strong>Seats Available:</strong><br>
+               {{ flight.outboundFlight.availableSeats }} / {{ flight.outboundFlight.totalSeats }}
+            </div>
+          </div>
+
+          <!-- Display Return Flight (if available) -->
+          <div *ngIf="flight.returnFlight">
+            <hr>
+            <h6 class="card-title text-center">{{ flight.returnFlight.flightNumber }} - {{ flight.returnFlight.airline }}</h6>
+            <div class="card-text mb-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="text-center">
+                  <div class="flight-info">
+                    <strong>From:</strong> {{ flight.returnFlight.departureLocation.city }} ({{ flight.returnFlight.departureLocation.code }})
+                  </div>
+                  <div class="flight-time">
+                    <strong>Departure:</strong> {{ flight.returnFlight.departureTime | date: 'short' }}
+                  </div>
+                </div>
+                <div class="plane-icon">
+                  <i class="bi bi-airplane-engines"></i>
+                </div>
+                <div class="text-center">
+                  <div class="flight-info">
+                    <strong>To:</strong> {{ flight.returnFlight.arrivalLocation.city }} ({{ flight.returnFlight.arrivalLocation.code }})
+                  </div>
+                  <div class="flight-time">
+                    <strong>Arrival:</strong> {{ flight.returnFlight.arrivalTime | date: 'short' }}
+                  </div>
+                </div>
+              </div>
+              <div class="text-center mt-2">
+                <strong>Duration:</strong> {{ flight.returnFlight.duration }}
+              </div>
+            </div>
+
+            <div class="card-text mb-3 d-flex justify-content-around">
+              <div class="text-center">
+                <strong>Economy Price:</strong><br>
+                {{ flight.returnFlight.price | currency }}
+              </div>
+              <div class="text-center">
+                <strong>Seats Available:</strong><br>
+                Economy: {{ flight.returnFlight.availableSeats }} / {{ flight.returnFlight.totalSeats }}
+              </div>
+            </div>
+          </div>
+
+          <!-- View Details Button -->
+          <button class="btn btn-primary mt-auto" (click)="viewDetails(flight)">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

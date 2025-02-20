@@ -1,0 +1,39 @@
+# ASP.NET Core / Visual Studio
+**/bin/
+**/obj/
+.vscode/
+*.user
+*.suo
+*.cache
+*.csproj.user
+*.dbmdl
+*.jfm
+*.publishsettings
+
+
+# Logs
+*.log
+logs/
+
+# NuGet
+*.nupkg
+packages/
+project.lock.json
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Coverage reports
+coverage/
+
+# Misc
+*.swp
+*.swo
+*.DS_Store

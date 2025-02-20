@@ -1,0 +1,97 @@
+/* General Container Styling */
+.container {
+  margin-top: 30px;
+}
+
+.card {
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+}
+
+.card-body {
+  background-color: #f8f9fa; /* Light background for contrast */
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Form Labels */
+.card-body label {
+  font-size: 1rem;
+  color: #003366; /* Matching deep navy from navbar */
+  font-weight: bold;
+}
+
+/* Input Fields */
+.form-control {
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  border-color: #FFD700; /* Gold border on focus */
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+/* Radio Buttons */
+.form-check-input:checked {
+  background-color: #FFD700; /* Gold check */
+  border-color: #FFD700;
+}
+
+.form-check-label {
+  color: #003366; /* Navy font */
+  font-weight: 600;
+}
+
+/* Autocomplete Dropdown */
+.list-group-item {
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.list-group-item:hover {
+  background-color: #FFD700; /* Highlight on hover */
+  color: black;
+}
+
+/* Passengers Section */
+.border {
+  border: 1px solid #ccc; /* Light border for passenger selection */
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: #003366; /* Deep navy icons */
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.icon-button:hover {
+  color: #FFD700; /* Gold hover effect for icons */
+}
+
+.primary-icon {
+  color: #003366; /* Default color for icons */
+}
+
+.primary-icon:hover {
+  color: #FFD700; /* Hover effect for icons */
+}
+
+/* Search Button */
+.btn-primary {
+  background-color: #FFD700; /* Gold button */
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+  border-radius: 30px;
+}
+
+.btn-primary:hover {
+  background-color: #FFC300; /* Slightly darker gold */
+  color: black;
+}

@@ -1,0 +1,60 @@
+/* Overlay covering the whole screen */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050; /* Ensure it's above other elements */
+}
+
+/* Container for spinner */
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5); /* Gold glow effect */
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Bootstrap spinner */
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border: 4px solid #FFD700; /* Gold border */
+  border-right-color: transparent; /* Creates rotating effect */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Loading text */
+.loading-text {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #003366; /* Deep navy blue */
+}
+
+/* Animations */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

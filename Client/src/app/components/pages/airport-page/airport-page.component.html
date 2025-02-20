@@ -1,0 +1,84 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Airports</h2>
+  </div>
+
+  <div *ngIf="airports.length === 0" class="alert alert-info">
+    List is empty, please add the first airport.
+  </div>
+
+  <div *ngIf="airports.length > 0">
+    <!-- Top Panel -->
+    <div class="card p-3 mb-4 shadow-sm">
+      <div class="d-flex flex-wrap align-items-center justify-content-between">
+
+        <!-- Page Size and Sort Options -->
+        <div class="d-flex align-items-center gap-3 flex-wrap">
+          <div class="me-sm-3">
+            <label for="pageSize" class="form-label mb-1">Page Size</label>
+            <select id="pageSize" class="form-select" [(ngModel)]="pageSize" (change)="onPageSizeChange()">
+              <option *ngFor="let size of pageSizeOptions" [value]="size">{{ size }}</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="sort" class="form-label mb-1">Sort By</label>
+            <select id="sort" class="form-select" [(ngModel)]="sortColumn" (change)="onSortChange()">
+              <option value="name">Name (A-Z)</option>
+              <option value="name,Descending">Name (Z-A)</option>
+              <option value="city">City (A-Z)</option>
+              <option value="city,Descending">City (Z-A)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Category Chips -->
+        <div class="d-flex flex-wrap gap-2 align-items-center">
+          <button *ngFor="let continent of continents"
+                  (click)="onCategoryChange(continent)"
+                  [class.active-chip]="selectedContinent === continent"
+                  class="btn btn-outline-primary btn-sm">
+            {{ continent }}
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Results Info -->
+      <div class="mb-3">
+        <p>Showing {{ currentStartIndex }} - {{ currentEndIndex }} of {{ totalElements }} airports</p>
+      </div>
+    <!-- Cards -->
+    <div class="row">
+      <div *ngFor="let airport of airports" class="col-sm-12 col-md-6 col-lg-4 mb-3">
+        <div class="card airport-card">
+          <img
+            [src]="airport.cityPhotoUrl"
+            alt="Photo of {{ airport.city }}"
+            class="card-img-top img-fluid"
+            *ngIf="airport.cityPhotoUrl" />
+          <div class="card-body">
+            <h5 class="card-title">{{ airport.name }} ({{ airport.code }})</h5>
+            <p class="card-text">
+              <strong>City:</strong> {{ airport.city }}<br>
+              <strong>Country:</strong> {{ airport.country }}<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="d-flex justify-content-center overflow-auto">
+      <ngb-pagination
+        [collectionSize]="totalElements"
+        [(page)]="currentPage"
+        [pageSize]="pageSize"
+        (pageChange)="onPageChange($event)"
+        [boundaryLinks]="true"
+        class="pagination-responsive">
+      </ngb-pagination>
+    </div>
+  </div>
+</div>

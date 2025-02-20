@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4">
+  <!-- Logo Div -->
+  <div class="navbar-brand-container">
+    <i class="bi bi-airplane-fill airplane-icon"></i>
+    <a class="navbar-brand" href="#">AirFlyer</a>
+  </div>
+
+  <!-- Toggler for Phone View -->
+  <button class="navbar-toggler ms-auto" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar Links and Buttons -->
+  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarNav">
+    <!-- Links Div (Home, Reservation, Airports) -->
+    <div class="navbar-links mx-auto">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" [routerLink]="['/']">Home</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" *ngIf="isLoggedIn; else showLoginModal" [routerLink]="['/reservation']">Reservations</a>
+        </li>
+        <ng-template #showLoginModal>
+          <a class="nav-link" (click)="loginModal.openModal()">Reservations</a>
+        </ng-template>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/airport']">Airports</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/management']">Management</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Buttons Div (Login, Register, Logout) -->
+    <div class="navbar-buttons ms-auto">
+      <ul class="navbar-nav">
+        <ng-container *ngIf="!isLoggedIn; else loggedInLinks">
+          <li class="nav-item">
+            <a class="nav-link btn btn-yellow" (click)="loginModal.openModal()">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-outline-yellow ms-2" (click)="registerModal.openModal()">Register</a>
+          </li>
+        </ng-container>
+        <ng-template #loggedInLinks>
+          <li class="nav-item">
+            <a class="nav-link btn btn-yellow" (click)="logout()">Logout</a>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+
+  <app-login-modal #loginModal></app-login-modal>
+  <app-register-modal #registerModal></app-register-modal>
+</nav>
